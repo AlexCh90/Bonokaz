@@ -1,0 +1,29 @@
+{
+  "name": "bonokaz",
+  "version": "1.0.0",
+  "description": "My first API REST",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexCh90/Bonokaz.git"
+  },
+  "author": "Alex C.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexCh90/Bonokaz/issues"
+  },
+  "homepage": "https://github.com/AlexCh90/Bonokaz#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.3"
+  }
+}
