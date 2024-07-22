@@ -97,7 +97,21 @@ module.exports = (sequelize, DataTypes) => {
         },
 
         id_civility: {
-            
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                notEmpty: { msg: "La civilité ne peut pas être vide." },
+                notNull: { msg: "La civilité est une propriété requise."}
+            }
+        },
+
+        id_status: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                notEmpty: { msg: "Le statut ne peut pas être vide." },
+                notNull: { msg: "Le statut est une propriété requise."}
+            }
         }
     }, {
         timestamps: true,
