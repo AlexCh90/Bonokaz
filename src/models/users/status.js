@@ -6,19 +6,19 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-          },
+        },
 
-          wording: {
-              type: DataTypes.STRING,
-              allowNull: false,
-              unique: {
+        wording: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: {
                 msg: 'Ce libellé de statut existe déjà.'
-              },
-              validate: {
+            },
+            validate: {
                 notEmpty: { msg: 'Le libellé de statut ne peut pas être vide.' },
                 notNull: { msg: 'Le libellé de statut est une propriété requise.'}
-              }
-            },
+            }
+        },
     }, {
         timestamps: true,
         createdAt: 'created',

@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
 
         password: {
-          type: DataTypes.STING
+            type: DataTypes.STING
         },
 
         name:{
@@ -131,5 +131,9 @@ module.exports = (sequelize, DataTypes) =>{
                 }
             }
         }
+    }, {
+        timestamps: true,
+        createdAt: 'created',
+        updatedAt: false
     })
 }

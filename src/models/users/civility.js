@@ -6,19 +6,19 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-          },
+        },
 
-          wording: {
-              type: DataTypes.STRING,
-              allowNull: false,
-              unique: {
+        wording: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: {
                 msg: 'Ce libellé de civilité existe déjà.'
-              },
-              validate: {
+            },
+            validate: {
                 notEmpty: { msg: 'Le libellé de civilité ne peut pas être vide.' },
                 notNull: { msg: 'Le libellé de civilité est une propriété requise.'}
-              }
-            },
+            }
+        },
     }, {
         timestamps: true,
         createdAt: 'created',

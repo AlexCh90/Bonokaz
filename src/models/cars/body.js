@@ -8,21 +8,21 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
           },
           
-          name: {
-              type: DataTypes.STRING,
-              allowNull: false,
-              unique: {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: {
                 msg: 'Ce type de carrosserie existe déjà.'
-              },
-              validate: {
+            },
+            validate: {
                 len: {
-                  args: [1, 25],
-                  msg: 'Le type de carrosserie doit contenir entre 1 et 25 caractères.'
+                    args: [1, 25],
+                    msg: 'Le type de carrosserie doit contenir entre 1 et 25 caractères.'
                 },
                 notEmpty: { msg: 'Le type de carrosserie ne peut pas être vide.' },
                 notNull: { msg: 'Le type de carrosserie est une propriété requise.'}
-              }
-            },
+            }
+        },
     }, {
         timestamps: true,
         createdAt: 'created',
