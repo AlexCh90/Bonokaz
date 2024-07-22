@@ -1,8 +1,19 @@
 const { Sequelize, DataTypes } = require('sequelize')
 const bcrypt = require('bcrypt')
-const PokemonModel = require('../models/pokemon')
-const UserModel = require('../models/user')
-const pokemons = require('./mock-pokemon')
+
+const BodyModel = require('../models/cars/body')
+const BrandModel = require('../models/cars/brand')
+const CarModel = require('../models/cars/car')
+const ColorModel = require('../models/cars/color')
+const EnergyModel = require('../models/cars/energy')
+const GearboxModel = require('../models/cars/gearbox')
+const ModelModel = require('../models/cars/model')
+
+const SellerModel = require('../models/sellers/seller')
+
+const CivilityModel = require('../models/users/civility')
+const StatusModel = require('../models/users/status')
+const UserModel = require('../models/users/user')
 
 let sequelize
 
@@ -16,8 +27,8 @@ if(process.env.NODE_ENV === 'production') {
     logging: true
   })
 } else {
-  sequelize = new Sequelize('pokedex', 'username', 'password', {
-    host: '192.168.64.2',
+  sequelize = new Sequelize('bonokaz', 'root', 'SagitariusA*90', {
+    host: 'localhost',
     dialect: 'mariadb',
     dialectOptions: {
       timezone: 'Etc/GMT-2',
@@ -27,27 +38,22 @@ if(process.env.NODE_ENV === 'production') {
   
 }
 
-const initDb = () => {
-  return sequelize.sync().then(_ => {
-    pokemons.map(pokemon => {
-      Pokemon.create({
-        name: pokemon.name,
-        hp: pokemon.hp,
-        cp: pokemon.cp,
-        picture: pokemon.picture,
-        types: pokemon.types
-      })
-      .then(pokemon => console.log(pokemon.toJSON()))
-    })
+const Body = BodyModel(sequelize, DataTypes)
+const Brand = BrandModel(sequelize, DataTypes)
+const Car = CarModel(sequelize, DataTypes)
+const Color = ColorModel(sequelize, DataTypes)
+const Energy = EnergyModel(sequelize, DataTypes)
+const Gearbox = GearboxModel(sequelize, DataTypes)
+const Model = ModelModel(sequelize, DataTypes)
 
-    bcrypt.hash('pikachu', 10)
-    .then(hash => User.create({ username: 'pikachu', password: hash }))
-    .then(user => console.log(user.toJSON()))
+const Seller = SellerModel(sequelize, DataTypes)
 
-    console.log('La base de donnée a bien été initialisée !')
-  })
-}
+const Civility = CivilityModel(sequelize, DataTypes)
+const Status = StatusModel(sequelize, DataTypes)
+const User = UserModel(sequelize, DataTypes)
+
+sequelize.sync().then(_ => console.log("La base de données à bien été instanciée"))
 
 module.exports = { 
-  initDb, Pokemon, User
+  Body, Brand, Car, Color, Energy, Gearbox, Model, Seller, Civility, Status, User
 }
