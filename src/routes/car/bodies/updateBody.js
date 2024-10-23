@@ -15,7 +15,7 @@ module.exports = (app) => {
           return res.status(404).json({ message })
         }
 
-        const message = `La carrosserie ${pokemon.name} a bien été modifiée.`
+        const message = `La carrosserie ${body.name} a bien été modifiée.`
         res.json({message, data: body })
       })
     })

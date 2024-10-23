@@ -67,5 +67,5 @@ const initDb = () => {
 }
 
 module.exports = { 
-  Body, Brand, Car, Color, Energy, Gearbox, Model, Seller, Civility, Status, User
+  initDb, Body, Brand, Car, Color, Energy, Gearbox, Model, Seller, Civility, Status, User
 }
