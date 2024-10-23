@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
 
         username: {
-            type: DataTypes.STING,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: {
                 msg: "Ce nom d'utilisateur est déjà pris."
@@ -29,11 +29,11 @@ module.exports = (sequelize, DataTypes) =>{
         },
 
         password: {
-            type: DataTypes.STING
+            type: DataTypes.STRING
         },
 
         name:{
-            type: DataTypes.STING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: {
@@ -90,7 +90,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
 
         adress: {
-            type: DataTypes.STING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notEmpty: {

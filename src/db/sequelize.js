@@ -27,7 +27,7 @@ if(process.env.NODE_ENV === 'production') {
     logging: true
   })
 } else {
-  sequelize = new Sequelize('bonokaz', 'root', 'SagitariusA*90', {
+  sequelize = new Sequelize('bonokaz', 'root', '', {
     host: 'localhost',
     dialect: 'mariadb',
     dialectOptions: {
