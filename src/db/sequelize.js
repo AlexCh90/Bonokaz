@@ -2,6 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 const bcrypt = require('bcrypt')
 
 const BodyModel = require('../models/cars/body')
+const bodies = require('./mock-bodies')
 const BrandModel = require('../models/cars/brand')
 const CarModel = require('../models/cars/car')
 const ColorModel = require('../models/cars/color')
@@ -52,7 +53,18 @@ const Civility = CivilityModel(sequelize, DataTypes)
 const Status = StatusModel(sequelize, DataTypes)
 const User = UserModel(sequelize, DataTypes)
 
-sequelize.sync().then(_ => console.log("La base de données à bien été instanciée"))
+const initDb = () => {
+  return sequelize.sync().then(_ => {
+      bodies.map(body => {
+        Body.create({
+          name: body.name
+        })
+        .then(body => console.log(body.toJSON()))
+      })
+
+      console.log("La base de données à bien été instanciée")
+  })
+}
 
 module.exports = { 
   Body, Brand, Car, Color, Energy, Gearbox, Model, Seller, Civility, Status, User

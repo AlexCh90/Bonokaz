@@ -1,11 +1,11 @@
-const { Body } = require('../db/sequelize')
+const { Body } = require('../../../db/sequelize')
 const { Op } = require('sequelize')
-const auth = require('../auth/auth')
+// auth = require('../../../auth/auth')
 
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.substring(1)
 
 module.exports = (app) => {
-  app.get('/api/bodies', auth, (req, res) => {
+  app.get('/bodies', (req, res) => {
     if(req.query.name) {
       const name = req.query.name
       const limit = parseInt(req.query.limit) || 5
