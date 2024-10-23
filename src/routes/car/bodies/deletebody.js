@@ -1,8 +1,8 @@
 const { Body } = require('../../../db/sequelize')
-const auth = require('../../../auth/auth')
+//const auth = require('../../../auth/auth')
 
 module.exports = (app) => {
-  app.delete('/api/body/:id', auth, (req, res) => {
+  app.delete('/body/:id', (req, res) => {
     Body.findByPk(req.params.id)
       .then(body => {
         if(body === null) {

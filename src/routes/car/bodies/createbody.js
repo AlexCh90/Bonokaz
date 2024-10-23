@@ -1,13 +1,13 @@
 const { Body } = require('../../../db/sequelize')
 const { ValidationError, UniqueConstraintError } = require('sequelize')
-const auth = require('../../../auth/auth')
+//const auth = require('../../../auth/auth')
 
 module.exports = (app) => {
-  app.post('/api/body', auth, (req, res) => {
+  app.post('/bodies', (req, res) => {
     Body.create(req.body)
-      .then(body => {
+      .then(carbody => {
         const message = `La carrosserie ${req.body.name} a bien été créée.`
-        res.json({ message, data: body })
+        res.json({ message, data: carbody })
       })
       .catch(error => {
         if(error instanceof ValidationError) {
