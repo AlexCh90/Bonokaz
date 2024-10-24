@@ -12,11 +12,11 @@ app.get('/', (req, res) => {
   res.json('Pouet')
 })
 
-require('./src/routes/car/bodies/createBody')(app)
-require('./src/routes/car/bodies/deleteBody')(app)
-require('./src/routes/car/bodies/findAllBodies')(app)
-require('./src/routes/car/bodies/findBodyById')(app)
-require('./src/routes/car/bodies/updateBody')(app)
+require('./src/routes/cars/bodies/createBody')(app)
+require('./src/routes/cars/bodies/deleteBody')(app)
+require('./src/routes/cars/bodies/findAllBodies')(app)
+require('./src/routes/cars/bodies/findBodyById')(app)
+require('./src/routes/cars/bodies/updateBody')(app)
 
 
 //On gère les routes 404.
