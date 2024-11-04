@@ -1,7 +1,7 @@
 const {DataTypes} = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('gearbox', {
+    return sequelize.define('model', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,

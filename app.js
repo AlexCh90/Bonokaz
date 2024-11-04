@@ -18,6 +18,9 @@ require('./src/routes/cars/bodies/findAllBodies')(app)
 require('./src/routes/cars/bodies/findBodyById')(app)
 require('./src/routes/cars/bodies/updateBody')(app)
 
+require('./src/routes/users/createUser')(app)
+require('./src/routes/users/login')(app)
+
 
 //On gère les routes 404.
 app.use(({res}) => {
