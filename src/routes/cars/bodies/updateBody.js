@@ -1,9 +1,9 @@
 const { Body } = require('../../../db/sequelize')
 const { ValidationError, UniqueConstraintError } = require('sequelize')
-//const auth = require('../../../auth/auth')
+const auth = require('../../../auth/auth')
 
 module.exports = (app) => {
-  app.put('/bodies/:id', (req, res) => {
+  app.put('/bodies/:id', auth, (req, res) => {
     const id = req.params.id
     Body.update(req.body, {
       where: { id: id }

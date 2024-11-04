@@ -1,9 +1,9 @@
 const { Body } = require('../../../db/sequelize')
 const { ValidationError, UniqueConstraintError } = require('sequelize')
-//const auth = require('../../../auth/auth')
+const auth = require('../../../auth/auth')
 
 module.exports = (app) => {
-    app.post('/bodies', (req, res) => {
+    app.post('/bodies', auth, (req, res) => {
       Body.create(req.body)
         .then(carbody => {
           const message = `La carrosserie ${req.body.name} a bien été créée.`
